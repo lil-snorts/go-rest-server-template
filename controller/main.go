@@ -34,6 +34,7 @@ func handleRequests() {
 	myRouter.HandleFunc("/", homePage)
 	myRouter.HandleFunc("/articles", returnAllArticles)
 	myRouter.HandleFunc("/articles/{id}", returnOneArticle)
+	myRouter.HandleFunc("/articles/{id}", deleteArticle).Methods("DELETE")
 	myRouter.HandleFunc("/article", createNewArticle).Methods("POST")
 	log.Fatal(http.ListenAndServe(":10000", myRouter))
 }
@@ -47,6 +48,11 @@ func createNewArticle(w http.ResponseWriter, r *http.Request) {
 	// get the body of our POST request
 	// return the string response containing the request body
 	reqBody, _ := io.ReadAll(r.Body)
+
+	var newArticle Article
+	json.Unmarshal(reqBody, &newArticle)
+	Articles = append(Articles, newArticle)
+	// json.NewEncoder(w).Encode(newArticle)
 	fmt.Fprintf(w, "%+v", string(reqBody))
 }
 
@@ -61,7 +67,24 @@ func returnOneArticle(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(article)
 		}
 	}
+}
+func deleteArticle(w http.ResponseWriter, r *http.Request) {
+	// once again, we will need to parse the path parameters
+	vars := mux.Vars(r)
+	// we will need to extract the `id` of the article we
+	// wish to delete
+	id := vars["id"]
 
+	// we then need to loop through all our articles
+	for index, article := range Articles {
+		// if our id path parameter matches one of our
+		// articles
+		if article.Id == id {
+			// updates our Articles array to remove the
+			// article
+			Articles = append(Articles[:index], Articles[index+1:]...)
+		}
+	}
 }
 
 func main() {

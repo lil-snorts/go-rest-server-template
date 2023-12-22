@@ -8,3 +8,8 @@ content-type: application/json
     "desc": "The description for my new post", 
     "content": "my articles content" 
 }
+
+################################
+
+GET http://localhost:10000/articles HTTP/1.1
+content-type: application/json
