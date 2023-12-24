@@ -1,4 +1,4 @@
-package main
+package controller
 
 import (
 	"encoding/json"
@@ -87,7 +87,7 @@ func deleteArticle(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
+func startController() {
 
 	fmt.Println("Restful API server starting on port 10000")
 
