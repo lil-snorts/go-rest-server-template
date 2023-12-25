@@ -1,0 +1,12 @@
+package page
+
+import (
+    "github.com/GarNepNep/MaxTrackr-go-app/view/layout"
+    "github.com/GarNepNep/MaxTrackr-go-app/model"
+)
+
+templ Show(usr model.User) {
+    @layout.Base() {
+    <h1> hello from the homePage { usr.Name }</h1>
+    }
+}
