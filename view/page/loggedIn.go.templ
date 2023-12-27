@@ -4,10 +4,13 @@ import "github.com/GarNepNep/MaxTrackr-go-app/model"
 import "github.com/GarNepNep/MaxTrackr-go-app/view/layout"
 
 templ ShowLoggedInPage(authedUser model.User) {
-    @layout.Base() {
-        <h2> You are now logged in </h2>
-        <p> happy to have you here { authedUser.Name } </p>
-        <a href="https://temptest.auth.ap-southeast-2.amazoncognito.com/logout?client_id=6brbkckkr5ckfdmipmftrb86nm&logout_uri=https%3A%2F%2Flocalhost%3A8080%2Floggedin"> 
-        log out? </a>
-    }
+	@layout.Base() {
+		// save the @ref string returned after the URI as a cookie for something?
+		<h2>You are now logged in </h2>
+		<p>happy to have you here { authedUser.Name } </p>
+		<a href="https://temptest.auth.ap-southeast-2.amazoncognito.com/logout?client_id=6brbkckkr5ckfdmipmftrb86nm&redirect_uri=https%3A%2F%2Flocalhost%3A8080%2Floggedin">
+			log out? 
+		</a>
+		<a href="/authTest">test auth</a>
+	}
 }

@@ -1,0 +1,18 @@
+package page
+
+import "github.com/GarNepNep/MaxTrackr-go-app/model"
+import "github.com/GarNepNep/MaxTrackr-go-app/view/layout"
+
+script incrButton() {
+    console.log("incrButton " + buttonAuth)
+}
+
+templ ShowAuthTestPage(authedUser model.User) {
+	@layout.Base() {
+		<h2>button page</h2>
+		<p>
+			Button should increase a counter server side if the user is authenticated
+			<button type="button" onclick={ incrButton() }>tester</button>
+		</p>
+	}
+}

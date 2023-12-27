@@ -9,6 +9,6 @@ import (
 )
 
 func HandleLogIn(c echo.Context) error {
-	fmt.Println(c)
+	fmt.Println(c, "\n", c.QueryParam("code"))
 	return page.ShowLoggedInPage(model.User{}).Render(c.Request().Context(), c.Response().Writer)
 }
