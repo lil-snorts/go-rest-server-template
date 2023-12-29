@@ -6,10 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type HomeHandler struct {
-}
-
-func (hh HomeHandler) HandleHomePage(c echo.Context) error {
+func HandleHomePage(c echo.Context) error {
 	usr := model.User{
 		Name: "yipee@yahoo.com"}
 	return page.Show(usr).Render(c.Request().Context(), c.Response())

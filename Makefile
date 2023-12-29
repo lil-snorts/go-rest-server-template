@@ -1,3 +1,4 @@
 run:
 	@templ generate
-	@go run cmd/main.go
+	@go build -o bin/application application.go
+	@go run application.go

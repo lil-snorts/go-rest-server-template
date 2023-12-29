@@ -3,8 +3,13 @@ module github.com/GarNepNep/MaxTrackr-go-app
 go 1.21.5
 
 require (
-	github.com/a-h/templ v0.2.501 // indirect
-	github.com/labstack/echo/v4 v4.11.4 // indirect
+	github.com/a-h/templ v0.2.501
+	github.com/labstack/echo/v4 v4.11.4
+)
+
+require (
+	github.com/aws/aws-sdk-go v1.49.12 // indirect
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

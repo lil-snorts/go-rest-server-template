@@ -1,1 +1,7 @@
 **/*_templ.go
+**/*.zip
+MaxTrackr-go-app
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
