@@ -1,0 +1,13 @@
+package page
+
+import (
+	"maxtrackr/src/model"
+	"maxtrackr/src/view/layout"
+)
+
+templ Show(usr model.User) {
+	@layout.Base() {
+		<h1>hello from the homePage { usr.Name }</h1>
+		<a href="https://temptest.auth.ap-southeast-2.amazoncognito.com/login?client_id=6brbkckkr5ckfdmipmftrb86nm&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Flocalhost%3A8080%2Floggedin">Login or Register </a>
+	}
+}
