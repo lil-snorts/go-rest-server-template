@@ -1,3 +1,4 @@
 run:
 	@templ generate
-	@go run cmd/main.go
+	@go build -o maxtrackr -v
+	@./maxtrackr
