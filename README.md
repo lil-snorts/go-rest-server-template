@@ -11,3 +11,11 @@ https://echo.labstack.com
 ```
 
 Check the port isnt in use
+
+```bash
+# for when you mess up 
+eb init -p docker maxtrackr-dev
+eb list
+eb deploy
+eb open
+```
