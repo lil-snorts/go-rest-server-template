@@ -7,16 +7,14 @@ WORKDIR /app
 # Copies everything from your root directory into /app
 COPY . .
 
-# Set the GOPROXY environment variable
-RUN export GOPROXY=https://goproxy.io,direct
-RUN go clean -modcache
+# RUN go clean -modcache
 
 # generates the files needed for HTML rendering
-RUN go install github.com/a-h/templ/cmd/templ@latest
+RUN for i in $(seq 1 10); do go install github.com/a-h/templ/cmd/templ@latest && break || sleep 5; done
 RUN templ generate
 
 # Installs Go dependencies
-RUN go mod download
+RUN for i in $(seq 1 10); do go mod download && break || sleep 5; done
 
 #  fetches the relative dependencies 
 RUN go get
